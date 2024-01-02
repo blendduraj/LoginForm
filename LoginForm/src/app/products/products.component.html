@@ -1,0 +1,36 @@
+<!-- Your table with 5 columns -->
+<div class="row d-flex align-items-center justify-content-end">
+  <button class="col-md-2 "  mat-raised-button color="primary" (click)="openAddProductForm()">Add Product</button>
+</div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 20%;">Product Name</th>
+      <th style="width: 20%;">Category</th>
+      <th style="width: 20%;">Price</th>
+      <th style="width: 20%;">Date</th>
+      <th style="width: 20%;">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Loop through your products array and display each row -->
+    <tr *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ getCategoryName(product) }}</td>
+      <td>{{ product.price  }}</td>
+      <td>{{ product.date | date }}</td>
+      <td>
+        <!-- Add Edit and Delete buttons with corresponding actions -->
+         <mat-icon (click)="editProduct(product)">edit</mat-icon>
+         <button mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Add Product button -->
+
+<!-- Add Product Form -->
+<!-- ... (add form with input fields, date picker, and buttons) -->
